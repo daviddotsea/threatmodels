@@ -19,12 +19,12 @@
         "cells": [
           {
             "position": {
-              "x": 569.9999999999995,
-              "y": -9.999999999999488
+              "x": 149.99999999999773,
+              "y": -229.99999999999756
             },
             "size": {
-              "width": 280,
-              "height": 270
+              "width": 800,
+              "height": 690
             },
             "attrs": {
               "label": {
@@ -52,12 +52,12 @@
           },
           {
             "position": {
-              "x": 980,
-              "y": 65
+              "x": 1200,
+              "y": -309.99999999999966
             },
             "size": {
-              "width": 290,
-              "height": 260
+              "width": 740,
+              "height": 630
             },
             "attrs": {
               "label": {
@@ -84,12 +84,12 @@
           },
           {
             "position": {
-              "x": 179.9999999999999,
-              "y": 190.00000000000017
+              "x": -1080,
+              "y": -159.99999999999966
             },
             "size": {
-              "width": 160,
-              "height": 180
+              "width": 620,
+              "height": 480
             },
             "attrs": {
               "text": {
@@ -228,12 +228,12 @@
           },
           {
             "position": {
-              "x": 599.9999999999995,
-              "y": 20.00000000000051
+              "x": 239.99999999999784,
+              "y": -149.9999999999979
             },
             "size": {
-              "width": 220,
-              "height": 210
+              "width": 590,
+              "height": 530
             },
             "attrs": {
               "text": {
@@ -469,12 +469,12 @@
           },
           {
             "position": {
-              "x": 1030,
-              "y": 110
+              "x": 1350,
+              "y": -204.99999999999966
             },
             "size": {
-              "width": 190,
-              "height": 170
+              "width": 480,
+              "height": 420
             },
             "attrs": {
               "text": {
@@ -780,12 +780,12 @@
           },
           {
             "position": {
-              "x": -1710,
-              "y": 220
+              "x": -1230.0000000000027,
+              "y": -1749.9999999999964
             },
             "size": {
-              "width": 880,
-              "height": 780
+              "width": 1170,
+              "height": 890
             },
             "attrs": {
               "text": {
@@ -804,12 +804,12 @@
           },
           {
             "position": {
-              "x": -1140,
-              "y": 120
+              "x": -350,
+              "y": -1909.9999999999925
             },
             "size": {
-              "width": 990,
-              "height": 880
+              "width": 1330,
+              "height": 1020
             },
             "attrs": {
               "text": {
@@ -824,13 +824,6 @@
               "type": "tm.Text",
               "name": "Attack Tree 2: Account Takeover (Spoofing)\n\nGoal: Impersonate a legitimate customer\n\nPaths (OR):\n\n\nObtain valid credentials\n\nCredential stuffing\nPassword reuse from breached sites\nPhishing attack\nBrute forcing due to lack of rate limiting\n\n\n\nHijack an active session\n\nMissing HttpOnly cookie flag\nMissing Secure cookie flag\nNo SameSite protection\nSession fixation\n\n\n\nExploit weak authentication controls\n\nNo MFA enabled\nWeak password policy\nNo lockout after repeated login failures",
               "hasOpenThreats": false
-            },
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove"
-              ],
-              "name": null
             }
           }
         ],
