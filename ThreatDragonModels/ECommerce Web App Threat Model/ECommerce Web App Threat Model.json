@@ -84,7 +84,7 @@
           },
           {
             "position": {
-              "x": -1520,
+              "x": -1730,
               "y": 80
             },
             "size": {
@@ -776,7 +776,8 @@
             "target": {
               "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
               "port": "c4a2635d-2ca4-4d14-a778-ea4ede056161"
-            }
+            },
+            "vertices": []
           },
           {
             "position": {
