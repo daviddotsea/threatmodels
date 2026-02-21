@@ -824,6 +824,13 @@
               "type": "tm.Text",
               "name": "Attack Tree 2: Account Takeover (Spoofing)\n\nGoal: Impersonate a legitimate customer\n\nPaths (OR):\n\n\nObtain valid credentials\n\nCredential stuffing\nPassword reuse from breached sites\nPhishing attack\nBrute forcing due to lack of rate limiting\n\n\n\nHijack an active session\n\nMissing HttpOnly cookie flag\nMissing Secure cookie flag\nNo SameSite protection\nSession fixation\n\n\n\nExploit weak authentication controls\n\nNo MFA enabled\nWeak password policy\nNo lockout after repeated login failures",
               "hasOpenThreats": false
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           }
         ],
