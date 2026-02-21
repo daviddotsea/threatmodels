@@ -19,12 +19,12 @@
         "cells": [
           {
             "position": {
-              "x": -485.0000000000023,
-              "y": -919.9999999999997
+              "x": -540,
+              "y": -1030
             },
             "size": {
-              "width": 800,
-              "height": 690
+              "width": 940,
+              "height": 800
             },
             "attrs": {
               "label": {
@@ -52,12 +52,12 @@
           },
           {
             "position": {
-              "x": 700,
-              "y": -15
+              "x": 575,
+              "y": -29.99999999999818
             },
             "size": {
-              "width": 740,
-              "height": 630
+              "width": 990,
+              "height": 830
             },
             "attrs": {
               "label": {
@@ -84,12 +84,12 @@
           },
           {
             "position": {
-              "x": -1730,
-              "y": 80
+              "x": -1620,
+              "y": 150
             },
             "size": {
-              "width": 620,
-              "height": 480
+              "width": 860,
+              "height": 850
             },
             "attrs": {
               "text": {
@@ -228,8 +228,8 @@
           },
           {
             "position": {
-              "x": -400,
-              "y": -839.9999999999997
+              "x": -380.0000000000023,
+              "y": -879.9999999999997
             },
             "size": {
               "width": 590,
@@ -685,7 +685,8 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -701,24 +702,64 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Web Server  - MySQL Database",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "555ee892-1d98-4993-aebf-395e868e6fd4",
+                  "title": "SQL query manipulation in transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "If user‑controlled data is sent to the database without proper sanitization, attackers may craft malicious SQL components that alter queries sent from the web server to the MySQL database, resulting in unauthorized data modification.",
+                  "mitigation": "Use prepared SQL statements, validate and sanitize all inputs server‑side, enforce least‑privilege access control.",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 19,
+                  "score": "8"
+                },
+                {
+                  "id": "0ee2e56c-1eda-4b6d-b0c3-37c11e5a67db",
+                  "title": "Sensitive database data exposed during communication",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "If the communication channel between the web server and MySQL is not encrypted, or if queries return more data than necessary, attackers who compromise the DMZ or intercept internal traffic may gain access to sensitive customer or order data.",
+                  "mitigation": "Encrypt DB connections (TLS), restrict returned fields, enforce least‑privilege SQL roles.",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 20,
+                  "score": "8"
+                },
+                {
+                  "id": "a5dae623-f58a-4f74-94db-4cf1be1bf4b1",
+                  "title": "Privilege escalation through database connection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": " If the web application connects to MySQL using an account with excessive permissions, an attacker who compromises the web server could escalate privileges inside the database and perform unauthorized administrative actions.",
+                  "mitigation": "Use role‑based DB accounts, apply least‑privilege, separate read‑only and write accounts, audit DB permissions.",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 21,
+                  "score": "6.5"
+                }
+              ],
               "trustBoundaryIds": [
                 "7da4e607-b4fc-4a91-a220-c38009e2ee12",
                 "882df858-67d9-41a8-8583-719755e24d55"
               ]
             },
             "labels": [
-              "Data Flow"
+              "Web Server  - MySQL Database"
             ],
             "id": "e7909303-9bd8-48ed-87c6-c5e3748363dd",
             "source": {
@@ -728,13 +769,24 @@
             "target": {
               "cell": "2c4bdce5-7546-4b2d-a06d-0ec56f0300c5",
               "port": "a4df4275-9818-450f-b932-7fa98a812df7"
-            }
+            },
+            "vertices": [
+              {
+                "x": -30,
+                "y": -280
+              },
+              {
+                "x": 450,
+                "y": -120
+              }
+            ]
           },
           {
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "targetMarker": {
                   "name": "block"
                 },
@@ -750,23 +802,63 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Data Flow",
+              "name": "Customer to Web Server",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isBidirectional": false,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
-              "threats": [],
+              "threats": [
+                {
+                  "id": "44a7f5d5-1e7a-4b42-bafb-443b2a0a28ba",
+                  "title": "New generic threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "default",
+                  "new": true,
+                  "number": 16,
+                  "score": ""
+                },
+                {
+                  "id": "5f4df8c8-be8f-4bd7-96f3-4cae7fbec01d",
+                  "title": "Data intercepted in transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "If HTTPS/TLS is not enforced for traffic entering the web server, attackers may intercept login credentials, session tokens, or personal data sent by the customer.\n",
+                  "mitigation": "Enforce HTTPS/TLS 1.2+, enable HSTS, and configure secure cookies.",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 17,
+                  "score": "8"
+                },
+                {
+                  "id": "5f37cb09-a8a8-4c31-8c95-56d14d3f9851",
+                  "title": "Manipulated request parameters",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker may modify client-side form values such as price, quantity, or user IDs before sending the request to the web server.",
+                  "mitigation": "Validate all inputs server‑side, ignore client-side trust, enforce parameter integrity checks.",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 18,
+                  "score": "6"
+                }
+              ],
               "trustBoundaryIds": [
                 "7da4e607-b4fc-4a91-a220-c38009e2ee12"
               ]
             },
             "labels": [
-              "Data Flow"
+              "Customer to Web Server"
             ],
             "id": "7f213ad1-0799-4913-835a-833341b03aba",
             "source": {
@@ -777,12 +869,21 @@
               "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
               "port": "c4a2635d-2ca4-4d14-a778-ea4ede056161"
             },
-            "vertices": []
+            "vertices": [
+              {
+                "x": -790,
+                "y": -80
+              },
+              {
+                "x": -380,
+                "y": -500
+              }
+            ]
           },
           {
             "position": {
-              "x": -1050,
-              "y": -125
+              "x": -1790,
+              "y": -1210
             },
             "size": {
               "width": 1170,
@@ -805,8 +906,8 @@
           },
           {
             "position": {
-              "x": -410,
-              "y": -160
+              "x": 460,
+              "y": -1369.9999999999995
             },
             "size": {
               "width": 1330,
@@ -833,6 +934,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 15
+    "threatTop": 21
   }
 }
