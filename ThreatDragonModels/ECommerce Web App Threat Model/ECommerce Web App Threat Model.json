@@ -19,12 +19,12 @@
         "cells": [
           {
             "position": {
-              "x": -540,
-              "y": -1030
+              "x": -580,
+              "y": -1140
             },
             "size": {
-              "width": 940,
-              "height": 800
+              "width": 950,
+              "height": 770
             },
             "attrs": {
               "label": {
@@ -228,12 +228,12 @@
           },
           {
             "position": {
-              "x": -380.0000000000023,
-              "y": -879.9999999999997
+              "x": -440.00000000000017,
+              "y": -1079.9999999999998
             },
             "size": {
-              "width": 590,
-              "height": 530
+              "width": 650,
+              "height": 580
             },
             "attrs": {
               "text": {
@@ -637,54 +637,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "a89c4e9c-cee1-4ed3-a295-f981731e710b",
-            "parent": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
-            "source": {
-              "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
-              "port": "2bb18a85-221c-4670-9213-fc486f73ac25"
-            },
-            "target": {
-              "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
-              "port": "2bb18a85-221c-4670-9213-fc486f73ac25"
-            },
-            "vertices": []
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "red",
                 "strokeWidth": 2.5,
                 "targetMarker": {
@@ -772,12 +724,16 @@
             },
             "vertices": [
               {
-                "x": -30,
-                "y": -280
+                "x": -40,
+                "y": -320
               },
               {
-                "x": 450,
-                "y": -120
+                "x": 410,
+                "y": -160
+              },
+              {
+                "x": 440,
+                "y": -160
               }
             ]
           },
@@ -871,12 +827,12 @@
             },
             "vertices": [
               {
-                "x": -790,
-                "y": -80
+                "x": -800,
+                "y": -120
               },
               {
-                "x": -380,
-                "y": -500
+                "x": -390,
+                "y": -540
               }
             ]
           },
