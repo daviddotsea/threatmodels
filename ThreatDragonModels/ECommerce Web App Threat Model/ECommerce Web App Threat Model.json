@@ -770,19 +770,6 @@
               "protocol": "",
               "threats": [
                 {
-                  "id": "44a7f5d5-1e7a-4b42-bafb-443b2a0a28ba",
-                  "title": "New generic threat",
-                  "status": "Open",
-                  "severity": "TBD",
-                  "type": "Spoofing",
-                  "description": "Provide a description for this threat",
-                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
-                  "modelType": "default",
-                  "new": true,
-                  "number": 16,
-                  "score": ""
-                },
-                {
                   "id": "5f4df8c8-be8f-4bd7-96f3-4cae7fbec01d",
                   "title": "Data intercepted in transit",
                   "status": "Open",
@@ -847,17 +834,7 @@
                 "x": -390,
                 "y": -540
               }
-            ],
-            "tools": {
-              "items": [
-                "boundary",
-                "button-remove",
-                "vertices",
-                "source-arrowhead",
-                "target-arrowhead"
-              ],
-              "name": null
-            }
+            ]
           },
           {
             "position": {
