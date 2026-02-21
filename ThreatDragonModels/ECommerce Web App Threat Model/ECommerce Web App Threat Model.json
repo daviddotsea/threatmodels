@@ -807,6 +807,19 @@
                   "new": false,
                   "number": 18,
                   "score": "6"
+                },
+                {
+                  "id": "0757c234-fe5e-48a4-b2fa-21ec430f7678",
+                  "title": "Client identity spoofing on initial connection",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "An attacker may attempt to impersonate a legitimate customer by forging or manipulating client-side identifiers during the initial connection, such as spoofed IP addresses, fake user-agent headers, or manipulated session initialization requests. This can help bypass basic security checks or evade monitoring before authentication occurs.\n\n",
+                  "mitigation": "Enforce secure session initialization with unpredictable session IDs. Validate user-agent and IP consistency. Use device fingerprinting or risk-based authentication. Implement CAPTCHA or rate limiting during login attempts. Block suspicious IP addresses and detect automation patterns.\n\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 22,
+                  "score": "5.5"
                 }
               ],
               "trustBoundaryIds": [
@@ -834,7 +847,17 @@
                 "x": -390,
                 "y": -540
               }
-            ]
+            ],
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            }
           },
           {
             "position": {
@@ -890,6 +913,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 21
+    "threatTop": 22
   }
 }
