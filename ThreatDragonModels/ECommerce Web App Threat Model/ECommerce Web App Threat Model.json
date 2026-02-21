@@ -691,7 +691,7 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
+                  "name": "block"
                 },
                 "strokeDasharray": null
               }
@@ -702,13 +702,13 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Web Server  - MySQL Database",
+              "name": "Data Flow - Web Server  - MySQL Database",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "isBidirectional": false,
+              "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
@@ -759,7 +759,7 @@
               ]
             },
             "labels": [
-              "Web Server  - MySQL Database"
+              "Data Flow - Web Server  - MySQL Database"
             ],
             "id": "e7909303-9bd8-48ed-87c6-c5e3748363dd",
             "source": {
@@ -791,7 +791,7 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
+                  "name": "block"
                 },
                 "strokeDasharray": null
               }
@@ -802,13 +802,13 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Customer to Web Server",
+              "name": "Data Flow - Customer to Web Server",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "isBidirectional": false,
+              "isBidirectional": true,
               "isEncrypted": false,
               "isPublicNetwork": false,
               "protocol": "",
@@ -858,7 +858,7 @@
               ]
             },
             "labels": [
-              "Customer to Web Server"
+              "Data Flow - Customer to Web Server"
             ],
             "id": "7f213ad1-0799-4913-835a-833341b03aba",
             "source": {
