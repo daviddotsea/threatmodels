@@ -3,7 +3,7 @@
   "summary": {
     "title": "ECommerce Web App Threat Model",
     "owner": "David Corley",
-    "description": "",
+    "description": "This e‑commerce system uses an Apache Tomcat web server in the DMZ to handle customer requests. A MySQL database on the internal network stores customer information, orders, and product data. A firewall controls traffic between the internet, the web server, and the internal database server.",
     "id": 0
   },
   "detail": {
