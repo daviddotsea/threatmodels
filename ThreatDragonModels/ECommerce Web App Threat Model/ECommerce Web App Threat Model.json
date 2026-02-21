@@ -26,14 +26,19 @@
               "width": 280,
               "height": 270
             },
+            "attrs": {
+              "label": {
+                "text": "Internet-to-DMZ Trust Boundary"
+              }
+            },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "7da4e607-b4fc-4a91-a220-c38009e2ee12",
             "zIndex": -1,
+            "id": "7da4e607-b4fc-4a91-a220-c38009e2ee12",
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Trust Boundary",
-              "description": "",
+              "name": "Internet-to-DMZ Trust Boundary",
+              "description": "Boundary between untrusted external users and the semi‑trusted DMZ web server.",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
@@ -54,14 +59,19 @@
               "width": 290,
               "height": 260
             },
+            "attrs": {
+              "label": {
+                "text": "DMZ-to-Internal-Network Trust Boundary"
+              }
+            },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "882df858-67d9-41a8-8583-719755e24d55",
             "zIndex": -1,
+            "id": "882df858-67d9-41a8-8583-719755e24d55",
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Trust Boundary",
-              "description": "",
+              "name": "DMZ-to-Internal-Network Trust Boundary",
+              "description": "Boundary that separates the semi‑trusted DMZ web server from the trusted internal network hosting the MySQL database.",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
               "crossingFlows": [
@@ -86,13 +96,14 @@
                 "text": "Customer"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -176,7 +187,6 @@
               ]
             },
             "id": "dfe6b4cb-1bcf-47ad-bfb5-788e30697cae",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Customer",
@@ -184,9 +194,36 @@
               "isTrustBoundary": false,
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "providesAuthentication": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "22591459-41c5-4e82-bea3-4ffab922d02c",
+                  "title": "Stolen or forged customer credentials",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Spoofing",
+                  "description": "An attacker may impersonate a legitimate customer by using stolen, reused, or brute‑forced credentials obtained through phishing or other attacks.",
+                  "mitigation": "Implement MFA, enforce strong passwords, add rate limiting, and monitor for credential stuffing attacks.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 8,
+                  "score": "6"
+                },
+                {
+                  "id": "be059789-8132-45f1-bf6a-39475a0f83ea",
+                  "title": "Customer denies actions without proper audit trails",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Repudiation",
+                  "description": "A customer could deny making purchases or account changes if the system lacks sufficient logging and traceability of user actions.\n",
+                  "mitigation": "Enable detailed logging with timestamps, IP addresses, user IDs, and unique transaction identifiers to support non‑repudiation.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 9,
+                  "score": "4"
+                }
+              ]
             }
           },
           {
@@ -210,6 +247,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -293,7 +331,6 @@
               ]
             },
             "id": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
               "name": "Web Server / Web App",
@@ -311,40 +348,40 @@
                   "id": "c8529113-64fa-4fe2-b138-d14ec396d27c",
                   "title": "Weak authentication allows impersonation",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Spoofing",
                   "description": "An attacker may impersonate a legitimate customer due to weak or missing authentication controls.\n",
                   "mitigation": "Implement multi‑factor authentication (MFA) and enforce strong password controls.\n",
                   "modelType": "default",
                   "new": false,
                   "number": 1,
-                  "score": ""
+                  "score": "8"
                 },
                 {
                   "id": "891102fb-32c7-4254-bc3e-5042d049e149",
                   "title": "Input not validated allows data manipulation",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "High",
                   "type": "Tampering",
                   "description": "An attacker may modify price or inventory values by submitting malicious or altered input due to insufficient server‑side validation.\n",
                   "mitigation": "Implement strict server‑side input validation and sanitize all form inputs.\n",
                   "modelType": "default",
                   "new": false,
                   "number": 2,
-                  "score": ""
+                  "score": "7.5"
                 },
                 {
                   "id": "82aefc21-a45f-4e3f-ab9b-51096751413b",
                   "title": "Lack of logging allows denial of actions",
                   "status": "Open",
-                  "severity": "TBD",
+                  "severity": "Medium",
                   "type": "Repudiation",
                   "description": "Because the system does not maintain sufficient logs, a user or attacker may deny performing transactions or actions, and there would be no reliable audit trail to prove otherwise.\n",
                   "mitigation": "Implement detailed server‑side logging and audit trails for all critical actions, including authentication and transaction events.\n",
                   "modelType": "default",
                   "new": false,
                   "number": 3,
-                  "score": ""
+                  "score": "5"
                 },
                 {
                   "id": "b43bd5ff-d42c-470e-a60b-2ed8e86d7213",
@@ -384,6 +421,45 @@
                   "new": false,
                   "number": 6,
                   "score": "9.0"
+                },
+                {
+                  "id": "e0e74bc3-6c66-408a-bce7-fca8c249c585",
+                  "title": "Data intercepted in transit",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "If data traveling between the customer and the web server is not properly encrypted, an attacker may intercept or read sensitive information such as login credentials or session identifiers during transmission.\n",
+                  "mitigation": "Enforce HTTPS/TLS 1.2 or higher, enable HSTS, and ensure strong certificate configurations.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 13,
+                  "score": "7.5"
+                },
+                {
+                  "id": "0bba0bed-ccbd-4189-81c9-f10318402c17",
+                  "title": "Man‑in‑the‑middle modification of data",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "An attacker positioned between the customer and the web server could alter data in transit if communication is not properly protected. This could include modifying form submissions, injecting malicious input, or altering responses.\n",
+                  "mitigation": "Use HTTPS/TLS with strong ciphers, enable HSTS, validate all inputs server‑side, and verify integrity of critical data fields.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 14,
+                  "score": "6.5"
+                },
+                {
+                  "id": "1eb2341e-6750-43bb-9924-a99961c91482",
+                  "title": "Excessive or malicious traffic exhausts server resources",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "An attacker may send a high volume of requests or large payloads through normal application data flows, overwhelming the web server. This may include repeated POST requests, oversized uploads, or resource‑intensive queries, causing service degradation or downtime.\n",
+                  "mitigation": "Implement rate limiting, throttle incoming requests, restrict maximum request size, enforce upload limits, and monitor server resource usage.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 15,
+                  "score": "6.0"
                 }
               ]
             },
@@ -405,16 +481,19 @@
                 "text": "MySQL Database"
               },
               "topLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               },
               "bottomLine": {
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -498,7 +577,6 @@
               ]
             },
             "id": "2c4bdce5-7546-4b2d-a06d-0ec56f0300c5",
-            "zIndex": 3,
             "data": {
               "type": "tm.Store",
               "name": "MySQL Database",
@@ -506,13 +584,53 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "isALog": false,
               "isEncrypted": false,
               "isSigned": false,
               "storesCredentials": false,
               "storesInventory": false,
-              "threats": []
+              "threats": [
+                {
+                  "id": "36134509-f7ac-45ec-9208-c2e7abc9a886",
+                  "title": "Sensitive data stored without proper encryption",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Sensitive customer information such as passwords or personally identifiable data may be stored in plaintext or protected with weak cryptographic methods. If an attacker gains access to the database, this data could be directly exposed.\n",
+                  "mitigation": "Use bcrypt for password hashing, encrypt sensitive data at rest, and secure database backups to prevent unauthorized data exposure.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 10,
+                  "score": "8"
+                },
+                {
+                  "id": "d78a73db-635f-4105-9d3f-af1cb893b49f",
+                  "title": "Unauthorized modification of database records",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "If the database is accessed due to SQL injection or misconfigured permissions, an attacker may modify customer records, inventory data, or order information, impacting data integrity and system reliability.\n",
+                  "mitigation": "Enforce strict least‑privilege roles for database users, require prepared SQL statements, validate all input at the application layer, and enable database integrity controls.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 11,
+                  "score": "7.5"
+                },
+                {
+                  "id": "c1c5202a-066a-441c-ba14-de64f179683c",
+                  "title": "Excessive database privileges enabling privilege escalation",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Elevation of privilege",
+                  "description": "If the application connects to the database using an account with overly broad privileges, an attacker who compromises the web application may escalate privileges in the database, gaining additional access beyond what is intended.\n",
+                  "mitigation": "Use separate read-only and read-write database accounts, apply strict least‑privilege permissions, and audit database role assignments regularly.\n",
+                  "modelType": "default",
+                  "new": false,
+                  "number": 12,
+                  "score": "6.5"
+                }
+              ]
             }
           },
           {
@@ -552,6 +670,7 @@
               "Data Flow"
             ],
             "id": "a89c4e9c-cee1-4ed3-a295-f981731e710b",
+            "parent": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
             "source": {
               "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
               "port": "2bb18a85-221c-4670-9213-fc486f73ac25"
@@ -560,8 +679,7 @@
               "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
               "port": "2bb18a85-221c-4670-9213-fc486f73ac25"
             },
-            "vertices": [],
-            "parent": "2f556fe0-09e8-4e94-9d40-62a829f3118d"
+            "vertices": []
           },
           {
             "shape": "flow",
@@ -659,6 +777,54 @@
               "cell": "2f556fe0-09e8-4e94-9d40-62a829f3118d",
               "port": "c4a2635d-2ca4-4d14-a778-ea4ede056161"
             }
+          },
+          {
+            "position": {
+              "x": -1710,
+              "y": 220
+            },
+            "size": {
+              "width": 880,
+              "height": 780
+            },
+            "attrs": {
+              "text": {
+                "text": "Attack Tree 1: SQL Injection Leading to Database Compromise\n\n\nGoal: Gain unauthorized access to the database through SQL injection\n\nPaths (OR):\n\n\nIdentify an injectable input\n\nSearch box\nLogin form\nProduct filter parameter\nAny field lacking validation\n\n\n\nBypass protections\n\nMissing prepared statements\nWeak or no input validation\nVerbose SQL error messages reveal schema\n\n\n\nExecute SQL payloads\n\nUNION-based injection\nError-based injection\nTime-based blind injection\nBoolean-based blind injection\n\n\n\nAND (final step): Escalate privileges\n\nDump user tables\nModify inventory or order data\nAdd an admin user\nRead or write system files through DB functions"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "4be69c4c-f130-4246-add1-5b527c5fa9c1",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Text",
+              "name": "Attack Tree 1: SQL Injection Leading to Database Compromise\n\n\nGoal: Gain unauthorized access to the database through SQL injection\n\nPaths (OR):\n\n\nIdentify an injectable input\n\nSearch box\nLogin form\nProduct filter parameter\nAny field lacking validation\n\n\n\nBypass protections\n\nMissing prepared statements\nWeak or no input validation\nVerbose SQL error messages reveal schema\n\n\n\nExecute SQL payloads\n\nUNION-based injection\nError-based injection\nTime-based blind injection\nBoolean-based blind injection\n\n\n\nAND (final step): Escalate privileges\n\nDump user tables\nModify inventory or order data\nAdd an admin user\nRead or write system files through DB functions",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": -1140,
+              "y": 120
+            },
+            "size": {
+              "width": 990,
+              "height": 880
+            },
+            "attrs": {
+              "text": {
+                "text": "Attack Tree 2: Account Takeover (Spoofing)\n\nGoal: Impersonate a legitimate customer\n\nPaths (OR):\n\n\nObtain valid credentials\n\nCredential stuffing\nPassword reuse from breached sites\nPhishing attack\nBrute forcing due to lack of rate limiting\n\n\n\nHijack an active session\n\nMissing HttpOnly cookie flag\nMissing Secure cookie flag\nNo SameSite protection\nSession fixation\n\n\n\nExploit weak authentication controls\n\nNo MFA enabled\nWeak password policy\nNo lockout after repeated login failures"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "id": "a012fe83-f44f-4a3c-9715-adeeedce1940",
+            "zIndex": 12,
+            "data": {
+              "type": "tm.Text",
+              "name": "Attack Tree 2: Account Takeover (Spoofing)\n\nGoal: Impersonate a legitimate customer\n\nPaths (OR):\n\n\nObtain valid credentials\n\nCredential stuffing\nPassword reuse from breached sites\nPhishing attack\nBrute forcing due to lack of rate limiting\n\n\n\nHijack an active session\n\nMissing HttpOnly cookie flag\nMissing Secure cookie flag\nNo SameSite protection\nSession fixation\n\n\n\nExploit weak authentication controls\n\nNo MFA enabled\nWeak password policy\nNo lockout after repeated login failures",
+              "hasOpenThreats": false
+            }
           }
         ],
         "description": "Data flow diagram showing the customer, web app, and database"
@@ -666,6 +832,6 @@
     ],
     "diagramTop": 2,
     "reviewer": "",
-    "threatTop": 6
+    "threatTop": 15
   }
 }
