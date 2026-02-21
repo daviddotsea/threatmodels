@@ -794,8 +794,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "4be69c4c-f130-4246-add1-5b527c5fa9c1",
             "zIndex": 11,
+            "id": "4be69c4c-f130-4246-add1-5b527c5fa9c1",
             "data": {
               "type": "tm.Text",
               "name": "Attack Tree 1: SQL Injection Leading to Database Compromise\n\n\nGoal: Gain unauthorized access to the database through SQL injection\n\nPaths (OR):\n\n\nIdentify an injectable input\n\nSearch box\nLogin form\nProduct filter parameter\nAny field lacking validation\n\n\n\nBypass protections\n\nMissing prepared statements\nWeak or no input validation\nVerbose SQL error messages reveal schema\n\n\n\nExecute SQL payloads\n\nUNION-based injection\nError-based injection\nTime-based blind injection\nBoolean-based blind injection\n\n\n\nAND (final step): Escalate privileges\n\nDump user tables\nModify inventory or order data\nAdd an admin user\nRead or write system files through DB functions",
@@ -818,8 +818,8 @@
             },
             "visible": true,
             "shape": "td-text-block",
-            "id": "a012fe83-f44f-4a3c-9715-adeeedce1940",
             "zIndex": 12,
+            "id": "a012fe83-f44f-4a3c-9715-adeeedce1940",
             "data": {
               "type": "tm.Text",
               "name": "Attack Tree 2: Account Takeover (Spoofing)\n\nGoal: Impersonate a legitimate customer\n\nPaths (OR):\n\n\nObtain valid credentials\n\nCredential stuffing\nPassword reuse from breached sites\nPhishing attack\nBrute forcing due to lack of rate limiting\n\n\n\nHijack an active session\n\nMissing HttpOnly cookie flag\nMissing Secure cookie flag\nNo SameSite protection\nSession fixation\n\n\n\nExploit weak authentication controls\n\nNo MFA enabled\nWeak password policy\nNo lockout after repeated login failures",
